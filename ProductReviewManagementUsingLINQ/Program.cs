@@ -39,7 +39,7 @@
             while (flag)
             {
                 Console.WriteLine("Enter an option");
-                Console.WriteLine("1:Add product review\n2:Display product review list\n3:Exit");
+                Console.WriteLine("1:Add product review\n2:Display product review list\n3:Retrieve top 3 records\n4:Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -50,6 +50,9 @@
                         management.DisplayProductReviewList(list);
                         break;
                     case 3:
+                        management.RritreiveTop3Records(list);
+                        break;
+                    case 4:
                         flag = false;
                         break;
                     default:

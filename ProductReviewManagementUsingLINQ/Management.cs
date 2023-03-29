@@ -22,5 +22,10 @@ namespace ProductReviewManagementUsingLINQ
                 Console.WriteLine(Product.ProductId + " " + Product.UserId + " " + Product.Rating + " " + Product.Review + " " + Product.IsLike);
             }
         }
+        public void RritreiveTop3Records(List<ProductReviewModel> productReviewList)
+        {
+            var result = productReviewList.OrderByDescending(p => p.Rating).Take(3);
+            DisplayProductReviewList(result.ToList());
+        }
     }
 }
