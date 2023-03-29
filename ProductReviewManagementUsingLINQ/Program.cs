@@ -39,7 +39,7 @@
             while (flag)
             {
                 Console.WriteLine("Enter an option");
-                Console.WriteLine("1:Add product review\n2:Display product review list\n3:Retrieve top 3 records\n4:Retrieve records based on product Id and rating\n5:Count of review based on productId\n6:Skip top 5 records\n7:Retrieve records for productId and review\n8:Exit");
+                Console.WriteLine("1:Add product review\n2:Display product review list\n3:Retrieve top 3 records\n4:Retrieve records based on product Id and rating\n5:Count of review based on productId\n6:Skip top 5 records\n7:Retrieve records for productId and review\n8:Avrage of each productId based on rating\n9:Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -65,6 +65,9 @@
                         management.RetrieveRecordsForProductIdAndReview(list);
                         break;
                     case 8:
+                        management.AvgOfEachProductIdBasedOnRating(list);
+                        break;
+                    case 9:
                         flag = false;
                         break;
                     default:
