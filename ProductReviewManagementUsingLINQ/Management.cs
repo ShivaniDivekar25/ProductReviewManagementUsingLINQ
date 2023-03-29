@@ -32,8 +32,7 @@ namespace ProductReviewManagementUsingLINQ
             DisplayProductReviewList(result.ToList());
         }
         public void CountOfReviewBasedOnProductId(List<ProductReviewModel> productReviewList)
-        {
-            //var result = productReviewList.Select(p=> p.Review).Count();
+        { 
             var result = productReviewList.GroupBy(p => p.ProductId).Select(p => new { ProductId = p.Key, Count = p.Count() });
             foreach(var product in result)
             {
@@ -47,6 +46,14 @@ namespace ProductReviewManagementUsingLINQ
             Console.WriteLine("--------------------------------------");
             var result1 = productReviewList.OrderByDescending(p => p.Review).Skip(5);
             DisplayProductReviewList(result1.ToList());
+        }
+        public void RetrieveRecordsForProductIdAndReview(List<ProductReviewModel> productReviewList)
+        {   
+            var input = productReviewList.Select(p => new { ProductId = p.ProductId, Review = p.Review });
+            foreach (var product in input)
+            {
+                Console.WriteLine(product.ProductId + " " + product.Review);
+            }
         }
     }
 }
