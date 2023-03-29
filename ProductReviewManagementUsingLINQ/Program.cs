@@ -39,7 +39,7 @@
             while (flag)
             {
                 Console.WriteLine("Enter an option");
-                Console.WriteLine("1:Add product review\n2:Display product review list\n3:Retrieve top 3 records\n4:Retrieve records based on product Id and rating\n5:Count of review based on productId \n6:Exit");
+                Console.WriteLine("1:Add product review\n2:Display product review list\n3:Retrieve top 3 records\n4:Retrieve records based on product Id and rating\n5:Count of review based on productId\n6:Skip top 5 records\n7:Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -59,6 +59,9 @@
                         management.CountOfReviewBasedOnProductId(list);
                         break;
                     case 6:
+                        management.SkipTop5Records(list);
+                        break;
+                    case 7:
                         flag = false;
                         break;
                     default:
