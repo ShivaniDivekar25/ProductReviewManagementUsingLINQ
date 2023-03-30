@@ -101,5 +101,17 @@ namespace ProductReviewManagementUsingLINQ
                 }
             }
         }
+        public void RetrieveRecordsFromDatatableForIsLike(DataTable dataTable)
+        {
+            DataRow[] dataRows = dataTable.Select("IsLike = true");
+            foreach(DataRow row in dataRows)
+            {
+                Console.WriteLine("");
+                for (int i = 0; i < row.ItemArray.Length; i++)
+                {
+                    Console.Write(row.ItemArray[i] + "     ");
+                }
+            }
+        }
     }
 }
