@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,6 +62,14 @@ namespace ProductReviewManagementUsingLINQ
             foreach (var product in result)
             {
                 Console.WriteLine(product.ProductId + " " + product.AverageRating);
+            }
+        }
+        public void RetriveRecordsBasedOnSpecificReview(List<ProductReviewModel> productReviewList)
+        {
+            var result = productReviewList.Where(x => x.Review == "Best");
+            foreach (var product in result)
+            {
+                Console.WriteLine("ProductId: {0} UserId:{1} Review: {2} Rating: {3} IsLike: {4}",product.ProductId, product.UserId,product.Review,product.Rating,product.IsLike);
             }
         }
     }
