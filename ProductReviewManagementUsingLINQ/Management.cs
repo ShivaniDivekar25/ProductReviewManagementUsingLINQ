@@ -72,5 +72,34 @@ namespace ProductReviewManagementUsingLINQ
                 Console.WriteLine("ProductId: {0} UserId:{1} Review: {2} Rating: {3} IsLike: {4}",product.ProductId, product.UserId,product.Review,product.Rating,product.IsLike);
             }
         }
+        public DataTable CreatingDataTable(List<ProductReviewModel> productReviewModels)
+        {
+            DataTable dataTable = new DataTable();
+
+            dataTable.Columns.Add("ProductId", typeof(int));
+            dataTable.Columns.Add("UserId", typeof(int));
+            dataTable.Columns.Add("Rating", typeof(int));
+            dataTable.Columns.Add("Review", typeof(string));
+            dataTable.Columns.Add("IsLike", typeof(string));
+
+            foreach (var data in productReviewModels)
+            {
+                dataTable.Rows.Add(data.ProductId, data.UserId, data.Rating, data.Review, data.IsLike);
+            }
+            Console.WriteLine("Data successfully added in datatable.");
+            return dataTable;
+        }
+        public void PrintDataTable(DataTable dataTable)
+        {
+            Console.Write("ProductId" + " " + "UserId" +" "+ "Review" +" "+ "Rating" +" "+ "IsLike");
+            foreach (DataRow dataRow in dataTable.Rows)
+            {
+                Console.WriteLine("");
+                for (int i = 0; i < dataRow.ItemArray.Length; i++)
+                {
+                    Console.Write(dataRow.ItemArray[i] + "     ");
+                }
+            }
+        }
     }
 }
