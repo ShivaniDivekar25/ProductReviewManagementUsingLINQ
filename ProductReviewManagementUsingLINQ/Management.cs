@@ -113,5 +113,13 @@ namespace ProductReviewManagementUsingLINQ
                 }
             }
         }
+        public void RetrieveRecordsSpecificUserIdBasedOnRating(List<ProductReviewModel> productReviewList)
+        {
+            var result = productReviewList.OrderByDescending(x => x.Rating).Where(x => x.UserId == 10);
+            foreach(var product in result)
+            {
+                Console.WriteLine("UserId:{0}  ProductId: {1}  Review: {2}  Rating: {3}  IsLike: {4}", product.UserId, product.ProductId, product.Review, product.Rating, product.IsLike);
+            }
+        }
     }
 }
